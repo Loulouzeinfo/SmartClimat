@@ -1,47 +1,47 @@
 package smartclimat.DonneeClasse;
 
-import java.util.List;
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class Moins {
     
-    int moins;
-    List<Jour> jour;
-    
-    public Moins(int moins, List<Jour> jour){
-        this.jour=jour;
-        this.moins=moins;
-       
+    private int moins;
+    private Map<Integer,Jour> jours;
+
+    public Moins(int moins) {
+        this.moins = moins;
+        this.jours = new HashMap<Integer, Jour>();
     }
     
-      public int getMoins() {
+    
+    
+
+    public int getMoins() {
         return moins;
-    }
-
-    public List<Jour> getJour() {
-        return jour;
-    }
-
-    public void setJour(List<Jour> jour) {
-        this.jour = jour;
     }
 
     public void setMoins(int moins) {
         this.moins = moins;
     }
-    
-     public Moins creatMoins(int moins, List<Jour> jour) {
 
-        if (jour.size() > 27){
-            return new Moins(moins, jour);
-        }
-        return null;
-
+    public Map<Integer, Jour> getJours() {
+        return jours;
     }
-     
-     
-     
-     
+
+    public void setJours(Map<Integer, Jour> jours) {
+        this.jours = jours;
+    }
+    
+    public Jour getSingleJour(int jour){
+        
+        
+        return this.jours.get(jour);
+    }
+    
+    
+    
+    
+    
     
     
 }
