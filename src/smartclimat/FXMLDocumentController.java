@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
+import smartclimat.DonneeClasse.*;
 
 /**
  *
@@ -26,7 +27,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        Utiles.Utilitaire.downloadFile(2017, 03);
+        Utiles.Utilitaire.downloadFile(2014, 02);
+        
         
         
     }    
