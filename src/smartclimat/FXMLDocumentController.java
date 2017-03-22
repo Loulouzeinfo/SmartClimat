@@ -21,31 +21,14 @@ import javafx.scene.control.Label;
  * @author Loulouze
  */
 public class FXMLDocumentController implements Initializable {
-   ObservableList<PieChart.Data> pich;
-        @FXML
-    private JFXButton bt;
-
-    @FXML
-    private PieChart ia;
-
-    @FXML
-    void cli(ActionEvent event) {
-        
-           
-            pich = FXCollections.observableArrayList(
-        new PieChart.Data("janvier", 1),
-        new PieChart.Data("février", 2),
-        new PieChart.Data("mars", 3),
-        new PieChart.Data("avril", 18)
-        );
-         ia.getData().addAll(pich);
-        
-
-    }
+  
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        Utiles.Utilitaire.downloadFile(2017, 03);
+        
+        
     }    
 
  
