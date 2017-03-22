@@ -12,7 +12,16 @@ public class Annee {
         this.annee = annee;
         this.moins = new HashMap<Integer, Moins>();
     }
-
+    
+  public Moins getCreateMois(int moins){
+        
+        if(getSingleMoins(moins)!=null){
+            return getSingleMoins(moins);
+        }else {
+            
+            return this.moins.put(moins, new Moins(moins));
+        }
+  }
     
     
     

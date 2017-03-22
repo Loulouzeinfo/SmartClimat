@@ -23,6 +23,15 @@ public class Station {
         this.annees = new HashMap<Integer,Annee>();
     }
 
+      public Annee getCreateAnne(int annee){
+        
+        if(getSingleAnnee(annee)!=null){
+            return getSingleAnnee(annee);
+        }else {
+            
+            return annees.put(annee , new Annee(annee));
+        }
+    }
     public int getId() {
         return id;
     }

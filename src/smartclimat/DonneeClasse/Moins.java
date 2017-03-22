@@ -4,17 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Moins {
-    
+
     private int moins;
-    private Map<Integer,Jour> jours;
+    private Map<Integer, Jour> jours;
 
     public Moins(int moins) {
         this.moins = moins;
         this.jours = new HashMap<Integer, Jour>();
     }
-    
-    
-    
 
     public int getMoins() {
         return moins;
@@ -31,17 +28,20 @@ public class Moins {
     public void setJours(Map<Integer, Jour> jours) {
         this.jours = jours;
     }
-    
-    public Jour getSingleJour(int jour){
-        
-        
+
+    public Jour getSingleJour(int jour) {
+
         return this.jours.get(jour);
     }
     
-    
-    
-    
-    
-    
-    
+    public Jour getCreateJour(int jour){
+        
+        if(getSingleJour(jour)!=null){
+            return getSingleJour(jour);
+        }else {
+            
+            return jours.put(jour, new Jour(jour));
+        }
+  }
+
 }

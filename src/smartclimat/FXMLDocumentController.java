@@ -6,8 +6,15 @@
 package smartclimat;
 
 import com.jfoenix.controls.JFXButton;
+import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,7 +34,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        Utiles.Utilitaire.downloadFile(2014, 02);
+        //Utiles.Utilitaire.downloadFile(2016, 9);
+     
         
         
         
