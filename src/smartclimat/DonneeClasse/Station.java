@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package smartclimat.DonneeClasse;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author Loulouze
- */
 public class Station {
         private int id;
         private String nom;
@@ -20,17 +12,23 @@ public class Station {
     public Station(int id, String nom) {
         this.id = id;
         this.nom = nom;
-        this.annees = new HashMap<Integer,Annee>();
+        this.annees = new HashMap<>();
     }
 
-      public Annee getCreateAnne(int annee){
-        
-        if(getSingleAnnee(annee)!=null){
+      public Annee getCreateAnne(int annee){  
+          
+          
+        if(getSingleAnnee(annee)!=null){        
             return getSingleAnnee(annee);
         }else {
             
-            return annees.put(annee , new Annee(annee));
+            Annee n=new Annee(annee);
+            int an=annee;
+            annees.put(an, n);
+            return annees.get(an);
+            
         }
+        
     }
     public int getId() {
         return id;

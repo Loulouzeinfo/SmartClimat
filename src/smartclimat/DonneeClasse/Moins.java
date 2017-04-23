@@ -33,15 +33,33 @@ public class Moins {
 
         return this.jours.get(jour);
     }
-    
-    public Jour getCreateJour(int jour){
-        
-        if(getSingleJour(jour)!=null){
+
+    public Jour getCreateJour(int jour) {
+
+        if (getSingleJour(jour) != null) {
             return getSingleJour(jour);
-        }else {
-            
-            return jours.put(jour, new Jour(jour));
+        } else {
+            this.jours.put(jour, new Jour(jour));
+            return this.jours.get(jour);
         }
-  }
+    }
+
+    public Releve CalculMoyenneMois() {
+        float temp = 0;
+        float neb = 0;
+        float hum = 0;
+
+        for (Jour r : jours.values()) {
+            temp = temp + r.calculMoyenneJour().getTemperateur();
+            neb = neb + r.calculMoyenneJour().getNebolosite();
+            hum = hum + r.calculMoyenneJour().getHumidite();
+        }
+
+        temp = temp / jours.size();
+        neb = neb / jours.size();
+        hum = hum / jours.size();
+
+        return new Releve(11, temp, neb, hum);
+    }
 
 }

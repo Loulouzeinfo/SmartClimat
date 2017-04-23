@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Utiles;
 
 import java.io.File;
@@ -10,18 +5,16 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 import smartclimat.DonneeClasse.Moins;
 
-/**
- *
- * @author Loulouze
- */
 public class Utilitaire {
 
     public static boolean downloadFile(int annee, int mois) {
@@ -59,8 +52,6 @@ public class Utilitaire {
                 writeFile.write(buffer, 0, read);
             }
             writeFile.flush();
-            
-            
 
         } catch (MalformedURLException ex) {
             ex.getMessage();
@@ -76,7 +67,7 @@ public class Utilitaire {
                 e.printStackTrace();
             }
         }
-        
+
         unzipFile(annee, mois);
 
         return true;
@@ -109,12 +100,10 @@ public class Utilitaire {
 
             gzis.close();
             out.close();
-            
 
             System.out.println("Done");
             new File(directory + "/" + monthAnnee + ".csv.gz").delete();
-            System.out.println("le fichier est bien ete supprimer");
-            
+            System.out.println("le fichier est bien ete supprime");
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -122,5 +111,22 @@ public class Utilitaire {
         return true;
     }
     
+    public static boolean  verfiConnect(){
+             try {
+        final URL url = new URL("http://www.google.fr");
+        final URLConnection conn = url.openConnection();
+        conn.connect();
+        return true;
+    } catch (MalformedURLException e) {
+        throw new RuntimeException(e);
+    } catch (IOException e) {
+        return false;
+    }
+
+       
+    
+        
+        
+    }
 
 }
